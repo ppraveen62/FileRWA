@@ -1,0 +1,39 @@
+package L3;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class fileRWA {
+
+	public static void main(String[] args) throws IOException {
+		//make sure file is at the path?
+		
+		String path="E://SiKmplilearn-//TestFile.txt";
+		
+		//Reading
+		File ob =new File(path);
+		Scanner Reader = new Scanner(ob);
+		while (Reader.hasNextLine()) {
+			String data = Reader.nextLine();
+			System.out.println(data);
+		}
+		Reader.close();
+		
+		//writing
+		String data="Hai Iam Praveen.";
+		FileOutputStream out=new FileOutputStream(path);
+		out.write(data.getBytes());
+		out.close();
+		
+		
+		//appending
+		FileWriter obj =new FileWriter(path,true);
+		obj.write(" iam appending "); //true means append 
+		obj.close();
+
+	}
+
+}
